@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block content %}
+
+
+<div style="text-align: end;white-space: 20px;" >
+<button><a href="{% url 'r' %}"style="color:white;text-decoration: none;" > RESTORE ALL </a></button>
+<button><a href="{% url 'd' %}"style="color:white;text-decoration: none;"> DELETE ALL </a> <br></button>
+</div>
+<br>
+<br>
+
+
+<center>
+<table style="margin-top:60px;margin-left:200px;width:70%;height:40px;text-align: center;" border="3px" rules="all">
+    <tr style="background-color:#6E5B9A;color:white">
+        <th>Name</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Date</th>
+        <th></th>
+        <th></th>
+    </tr>
+        {% for i in c %}
+    <tr>
+        <td>{{i.name}}</td>
+        <td>{{i.title}}</td>
+        <td>{{i.desc}}</td>
+        <td>{{i.date}}</td>
+        <td  style="border:none;"><a href="{% url 'r1' i.id %}" class="button"><img src="{% static 'restore.png' %}" class="action-btn "></a></td>
+        <td  style="border:none;"><a href="{% url 'd1' i.id %}" class="button"><img src="{% static 'delete.png' %}" class="action-btn "></a></td>
+    </tr>
+    {% endfor %}
+    </table>
+</center>
+
+
+<div class="back-link">
+<a href="{% url 'home' %}" style="color:#42326E;text-decoration: none;">Back</a>
+</div>
+
+{% endblock %}
+

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="form-container">
+<form action="" method="post">
+    {% csrf_token %}
+    Name:- <input type="text" name="a" value="{{t.name}}">
+    <br>
+    Title:- <input type="text" name="b" value="{{t.title}}" >
+    <br>
+    Description:- <textarea type="text" name="c"> {{t.desc}} </textarea>
+    <br>
+        <button> SUBMIT </button>
+</form>
+</div>
+
+<div class="back-link">
+<a href="{% url 'home' %}" style="color:#1E40AF;text-decoration: none;">Back</a>
+</div>
+
+
+{% endblock %}

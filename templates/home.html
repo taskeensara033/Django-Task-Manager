@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% load static  %}
+{% block content %}
+
+<center>
+<table style="margin-top:150px;margin-left:100px;width: 70%;height:60px;text-align: center;" border="4px" rules="all">
+    <tr style="background-color:#6E5B9A;color:white;">
+        <th>Name</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Date</th>
+        <th></th>
+        <th></th>
+    </tr>
+    {% for i in b %}
+    <tr>
+        <td>{{i.name}}</td>
+        <td>{{i.title}}</td>
+        <td>{{i.desc}}</td>
+        <td>{{i.date}}</td>
+        <td style="border:none;"><a href="{% url 'update' i.id %}"><img src="{% static 'update.png' %}" class="action-btn "></a></td>
+        <td style="border:none"><a href="{% url 'delete' i.id %}"><img src="{% static 'delete.png' %}" class="action-btn "></a></td>
+    </tr>
+    {% endfor %}
+</table>
+</center>
+
+{% endblock %}
